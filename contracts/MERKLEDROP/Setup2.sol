@@ -32,7 +32,7 @@ contract Token is ERC20Like {
     }
 }
 
-contract Setup {
+contract Setup2 {
 
     Token public immutable token;
     MerkleDistributor public immutable merkleDistributor;
