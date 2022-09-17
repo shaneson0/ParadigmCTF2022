@@ -33,13 +33,9 @@ contract MasterChefHelper {
 
         ERC20Like(tokenIn).approve(address(router), type(uint256).max);
         ERC20Like(tokenOut0).approve(address(router), type(uint256).max);
-        ERC20Like(tokenOut1).approve(address(router), type(uint256).max);
-
-        console.log("approve end");
-        
+        ERC20Like(tokenOut1).approve(address(router), type(uint256).max);        
         ERC20Like(tokenIn).transferFrom(msg.sender, address(this), amountIn);
 
-        console.log("transfer end");
         // swap for both tokens of the lp pool
         _swap(tokenIn, tokenOut0, amountIn / 2);
         _swap(tokenIn, tokenOut1, amountIn / 2);
@@ -49,12 +45,6 @@ contract MasterChefHelper {
     }
 
     function _addLiquidity(address token0, address token1, uint256 minAmountOut) internal {
-        
-        // Debug
-        console.log( ERC20Like(token0).balanceOf(address(this)) );
-        console.log( ERC20Like(token1).balanceOf(address(this)) );
-
-        
         (,, uint256 amountOut) = router.addLiquidity(
             token0, 
             token1, 
