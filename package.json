@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.3",
-    "dotenv": "^16.0.2"
+    "create-ssl-certificate": "^4.0.0",
+    "dotenv": "^16.0.2",
+    "openssl-nodejs": "^1.0.5"
   }
 }

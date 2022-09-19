@@ -7,6 +7,14 @@ startMockAccount = async (account) => {
     });
 }
 
+setBalance = async (user, amount) => {
+    await network.provider.send("hardhat_setBalance", [
+        user,
+        amount,
+    ]);
+}
+
 module.exports = {
-    startMockAccount
+    startMockAccount,
+    setBalance
 }

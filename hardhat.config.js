@@ -1,8 +1,9 @@
-require("@nomiclabs/hardhat-waffle");
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+
 require('dotenv').config();
+require("@nomiclabs/hardhat-waffle");
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY || '';
-const ALCHEMY_KEY = process.env.ALCHEMY_KEY || '';
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -24,8 +25,27 @@ module.exports = {
   solidity: "0.8.16",
 
   networks: {
+    localhost: {
+      url:  "http://localhost:8545",
+      settings: {
+        optimizer: {
+          enabled: true,
+          runs: 200
+        },
+      }
+    },
+    tercentCTF: {
+        url:  "http://47.102.40.39:8545",
+        accounts: [`${PRIVATE_KEY}`],
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200
+          },
+        }
+      },
     eth: {
-      url: ALCHEMY_KEY == '' ? "https://rpc.ankr.com/eth" : `https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`,
+      url:  "https://rpc.ankr.com/eth",
       accounts: [`${PRIVATE_KEY}`],
       settings: {
         optimizer: {
@@ -35,4 +55,4 @@ module.exports = {
       }
     }
   }
-};
+}

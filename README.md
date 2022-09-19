@@ -1,6 +1,10 @@
 # CTF 2022 Title and Write Up
 
 
+```
+prepare: 
+```
+
 ### Node
 
 ```
