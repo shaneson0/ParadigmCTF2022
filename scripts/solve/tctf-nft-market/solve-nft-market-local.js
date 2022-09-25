@@ -74,13 +74,11 @@ describe('[Challenge] resucue', function () {
         // attack arguments
         orderId = 0
         newPirce = 1
-        iusser = nftMarket.address
+        iusser = shaneson.address
         user = shaneson.address
-        reason = await create_max_uint64_bytes();
-        console.log(str(reason).length);
+        reason = "shaneson"
 
-
-        message = await verifier.verifyCouponTest(orderId, iusser, user, newPirce, reason);
+        message = await verifier.verifyCouponTest(replace_orderId, iusser, user, newPirce, reason);
         console.log("message >>>> ", message);
         // getMessage
         let flatSig = await shaneson.signMessage(message);
